@@ -1,8 +1,17 @@
-const CONDENSED_MENU_WIDTH = 550;
+const CONDENSED_MENU_WIDTH = 1330;
 var navbar = document.getElementById("main-navbar");
 
-controlNavbar();
-window.onresize = function() {controlNavbar();};
+function addFooter() {
+	var footer = document.getElementById("footer");
+	footer.innerHTML = `
+		<div id="footer-text">
+			<a href="privacy-policy.html">Privacy Policy</a>
+			<a href="contact.html">Contact</a>
+			<p id="copyright-text">Copyright © 2019 Hudson Hybrids Robotics. All rights reserved.</p>
+		</div>
+	`;
+}
+addFooter();
 
 function dropdown(id) {
 	if (id.classList.contains("expanded")) {
@@ -22,15 +31,39 @@ function controlNavbar() {
 		},
 		
 		{
-			file: "branches.html",
-			subfiles: ["", "engineering.html", "programming.html"],
+			file: "our-team.html",
+			subfiles: [],
 			num: 1
+		},
+		
+		{
+			file: "branches.html",
+			subfiles: ["engineering.html", "programming.html", "business.html"],
+			num: 2
+		},
+		
+		{
+			file: "media.html",
+			subfiles: [],
+			num: 6
 		},
 		
 		{
 			file: "contact.html",
 			subfiles: [],
-			num: 5
+			num: 7
+		},
+		
+		{
+			file: "donate.html",
+			subfiles: [],
+			num: 8
+		},
+		
+		{
+			file: "sponsors.html",
+			subfiles: [],
+			num: 9
 		}
 	];
 	
@@ -43,15 +76,19 @@ function controlNavbar() {
 				<a href="JavaScript:void(0);">Menu</a>
 				<div id="main-navbar-dropdown-contents" class="contents">
 					<a id="home-button" href="index.html">Home</a>
+					<a id="our-team-button" href="our-team.html">Our Team</a>
 					<div class="dropdown" onclick="dropdown(this)">
 						<a id="branches-button" href="JavaScript:void(0);">Branches</a>
 						<div class="contents">
-							<a id="branches-overview-button" href="branches.html">Overview</a>
 							<a id="engineering-button" href="engineering.html">Engineering</a>
 							<a id="programming-button" href="programming.html">Programming</a>
+							<a id="business-button" href="business.html">Business</a>
 						</div>
 					</div>
+					<a id="media-button" href="media.html">Media</a>
 					<a id="contact-button" href="contact.html">Contact</a>
+					<a id="donate-button" href="donate.html">Donate</a>
+					<a id="sponsors-button" href="sponsors.html">Sponsors</a>
 				</div>
 			</li>
 		`;
@@ -62,16 +99,28 @@ function controlNavbar() {
 			<li class="navbar-item">
 				<a id="home-button" href="index.html">Home</a>
 			</li>
+			<li class="navbar-item">
+				<a id="our-team-button" href="our-team.html">Our Team</a>
+			</li>
 			<li class="navbar-item dropdown">
 				<a id="branches-button" href="JavaScript:void(0);">Branches</a>
 				<div class="contents">
-					<a id="branches-overview-button" href="branches.html">Overview</a>
 					<a id="engineering-button" href="engineering.html">Engineering</a>
 					<a id="programming-button" href="programming.html">Programming</a>
+					<a id="business-button" href="business.html">Business</a>
 				</div>
 			</li>
 			<li class="navbar-item">
+				<a id="media-button" href="media.html">Media</a>
+			</li>
+			<li class="navbar-item">
 				<a id="contact-button" href="contact.html">Contact</a>
+			</li>
+			<li class="navbar-item">
+				<a id="donate-button" href="donate.html">Donate</a>
+			</li>
+			<li class="navbar-item">
+				<a id="sponsors-button" href="sponsors.html">Sponsors</a>
 			</li>
 		`;
 	}
@@ -111,9 +160,11 @@ function controlNavbar() {
 	}
 	
 	//Set active page
-	let navButtons = [document.getElementById("home-button"), document.getElementById("branches-button"), 
-		document.getElementById("branches-overview-button"), document.getElementById("engineering-button"), 
-		document.getElementById("programming-button"), document.getElementById("contact-button")];
+	let navButtons = [document.getElementById("home-button"), document.getElementById("our-team-button"),
+		document.getElementById("branches-button"), document.getElementById("engineering-button"), 
+		document.getElementById("programming-button"), document.getElementById("business-button"),
+		document.getElementById("media-button"), document.getElementById("contact-button"),
+		document.getElementById("donate-button"), document.getElementById("sponsors-button")];
 	for (let i = 0; i < navButtons.length; i++) {
 		if (i === fileIndex || i === subfileIndex) {
 			navButtons[i].classList.add("active");
@@ -123,3 +174,5 @@ function controlNavbar() {
 		}
 	}
 }
+controlNavbar();
+window.onresize = function() {controlNavbar();};
