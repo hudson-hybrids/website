@@ -23,12 +23,6 @@ jobs:
 
             echo Uploading files to Azure...
             az storage blob upload-batch --source ./src --destination "\$web" --connection-string $azureConnectionString
-            echo Purging CDN caches...
-            az login --service-principal --username "$userName" --password $password --tenant $tenantId
-            az account set --subscription "$subscription"
-            foldersToFlush=$(cd ./src && find ./ -type d | awk '{print $0 suffix}' suffix="/*" | tr  '\n' ' ')
-            foldersToFlush=$(echo $foldersToFlush | sed 's/\.//g' | sed 's/\/\//\//g')
-            az cdn endpoint purge --resource-group $resourceGroup --name $cdnEndpointName --profile-name $cdnProfileName  --content-paths $foldersToFlush
 
 workflows:
   version: 2
