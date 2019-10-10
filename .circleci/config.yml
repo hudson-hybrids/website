@@ -17,8 +17,13 @@ jobs:
               echo Releasing to Staging...
               azureConnectionString=${STAGING_STORAGE_CONNECTIONSTRING}
               resourceGroup=${STAGING_RESOURCEGROUP}
-              cdnEndpointName=${STAGING_ENDPOINT}
-              cdnProfileName=${STAGING_CDNPROFILE}
+            fi
+
+            if [[ "${CIRCLE_BRANCH}" == "master" ]]
+            then
+              echo Releasing to Production...
+              azureConnectionString=${PROD_STORAGE_CONNECTIONSTRING}
+              resourceGroup=${PROD_RESOURCEGROUP}
             fi
 
             echo Uploading files to Azure...
