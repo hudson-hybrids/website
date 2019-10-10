@@ -1,6 +1,8 @@
 version: 2.1
 jobs:
   deploy:
+    docker:
+      - image: circleci/python:3.7.4
     steps:
       - checkout
       - run:
@@ -34,7 +36,7 @@ jobs:
             foldersToFlush=$(cd ./src && find ./ -type d | awk '{print $0 suffix}' suffix="/*" | tr  '\n' ' ')
             foldersToFlush=$(echo $foldersToFlush | sed 's/\.//g' | sed 's/\/\//\//g')
             az cdn endpoint purge --resource-group $resourceGroup --name $cdnEndpointName --profile-name $cdnProfileName  --content-paths $foldersToFlush
-            
+
 workflows:
   version: 2
   deploy-website:
