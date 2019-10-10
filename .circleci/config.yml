@@ -2,17 +2,15 @@ version: 2.1
 jobs:
   deploy:
     docker:
-      - image: circleci/python:3.7.4
+      - image: circleci/golang:1.11.1
     steps:
       - checkout
       - run:
           command: |
             echo Installing AzureCLI...
-            echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-            sudo tee /etc/apt/sources.list.d/azure-cli.list
-            curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-            sudo apt-get install apt-transport-https
-            sudo apt-get update && sudo apt-get install azure-cli
+            apt-get update && apt-get install -yq python-pip libffi-dev libssl-dev
+            easy_install pyOpenSSL
+            pip install --disable-pip-version-check --no-cache-dir azure-cli~=2.0
 
             subscription=${SUBSCRIPTION}
             userName=${PRINCIPLE_ID}
