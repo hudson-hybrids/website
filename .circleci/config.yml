@@ -1,0 +1,41 @@
+version: 2.1
+jobs:
+  deploy:
+    docker:
+      - image: microsoft/azure-cli:latest
+    steps:
+      - checkout
+      - run:
+          command: |
+            subscription=${SUBSCRIPTION}
+            userName=${PRINCIPLE_ID}
+            password=${PRINCIPLE_SECRET}
+            tenantId=${PRINCIPLE_TENANT}
+
+            if [[ "${CIRCLE_BRANCH}" == "dev" ]]
+            then
+              echo Releasing to Staging...
+              azureConnectionString=${STAGING_STORAGE_CONNECTIONSTRING}
+              resourceGroup=${STAGING_RESOURCEGROUP}
+            fi
+
+            if [[ "${CIRCLE_BRANCH}" == "master" ]]
+            then
+              echo Releasing to Production...
+              azureConnectionString=${PROD_STORAGE_CONNECTIONSTRING}
+              resourceGroup=${PROD_RESOURCEGROUP}
+            fi
+
+            echo Uploading files to Azure...
+            az storage blob upload-batch --source ./src --destination "\$web" --connection-string $azureConnectionString
+
+workflows:
+  version: 2
+  deploy-website:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - dev
