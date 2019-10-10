@@ -22,7 +22,7 @@ jobs:
             fi
 
             echo Uploading files to Azure...
-            az storage blob upload-batch --source ./src --destination $web --connection-string $azureConnectionString
+            az storage blob upload-batch --source ./src --destination "\$web" --connection-string $azureConnectionString
             echo Purging CDN caches...
             az login --service-principal --username "$userName" --password $password --tenant $tenantId
             az account set --subscription "$subscription"
