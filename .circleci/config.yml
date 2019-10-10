@@ -1,0 +1,47 @@
+version: 2.1
+jobs:
+  deploy:
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo Installing AzureCLI...
+            echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
+            sudo tee /etc/apt/sources.list.d/azure-cli.list
+            curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+            sudo apt-get install apt-transport-https
+            sudo apt-get update && sudo apt-get install azure-cli
+
+            subscription=${SUBSCRIPTION}
+            userName=${PRINCIPLE_ID}
+            password=${PRINCIPLE_SECRET}
+            tenantId=${PRINCIPLE_TENANT}
+
+            if [[ "${CIRCLE_BRANCH}" == "dev" ]]
+            then
+              echo Releasing to Staging...
+              azureConnectionString=${STAGING_STORAGE_CONNECTIONSTRING}
+              resourceGroup=${STAGING_RESOURCEGROUP}
+              cdnEndpointName=${STAGING_ENDPOINT}
+              cdnProfileName=${STAGING_CDNPROFILE}
+            fi
+
+            echo Uploading files to Azure...
+            az storage blob upload-batch --source ./src --destination $web --connection-string $azureConnectionString
+            echo Purging CDN caches...
+            az login --service-principal --username "$userName" --password $password --tenant $tenantId
+            az account set --subscription "$subscription"
+            foldersToFlush=$(cd ./src && find ./ -type d | awk '{print $0 suffix}' suffix="/*" | tr  '\n' ' ')
+            foldersToFlush=$(echo $foldersToFlush | sed 's/\.//g' | sed 's/\/\//\//g')
+            az cdn endpoint purge --resource-group $resourceGroup --name $cdnEndpointName --profile-name $cdnProfileName  --content-paths $foldersToFlush
+            
+workflows:
+  version: 2
+  deploy-website:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - dev
