@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   deploy:
     docker:
-      - image: circleci/golang:1.11.1
+      - image: microsoft/azure-cli:latest
     steps:
       - checkout
       - run:
