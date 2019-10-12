@@ -200,8 +200,8 @@ p#copyright-text {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 330px;
-	height: 330px;
+	width: calc(180px + 10vw);
+	height: calc(180px + 10vw);
 }
 
 .img-and-caption {
