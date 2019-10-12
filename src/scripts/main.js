@@ -14,11 +14,11 @@ function addFooter() {
 addFooter();
 
 function dropdown(id) {
-	if (id.classList.contains("expanded")) {
-		id.classList.remove("expanded");
+	if (id.parentNode.classList.contains("expanded")) {
+		id.parentNode.classList.remove("expanded");
 	}
 	else {
-		id.classList.add("expanded");
+		id.parentNode.classList.add("expanded");
 	}
 }
 
@@ -73,12 +73,12 @@ function controlNavbar() {
 	if (windowWidth < CONDENSED_MENU_WIDTH) {
 		navbar.innerHTML = `
 			<li class="navbar-item dropdown">
-				<a href="JavaScript:void(0);">Menu</a>
+				<a href="JavaScript:void(0);" onclick="dropdown(this)">Menu</a>
 				<div id="main-navbar-dropdown-contents" class="contents">
 					<a id="home-button" href="index.html">Home</a>
 					<a id="our-team-button" href="our-team.html">Our Team</a>
-					<div class="dropdown" onclick="dropdown(this)">
-						<a id="branches-button" href="JavaScript:void(0);">Branches</a>
+					<div class="dropdown">
+						<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
 						<div class="contents">
 							<a id="engineering-button" href="engineering.html">Engineering</a>
 							<a id="programming-button" href="programming.html">Programming</a>
@@ -103,7 +103,7 @@ function controlNavbar() {
 				<a id="our-team-button" href="our-team.html">Our Team</a>
 			</li>
 			<li class="navbar-item dropdown">
-				<a id="branches-button" href="JavaScript:void(0);">Branches</a>
+				<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
 				<div class="contents">
 					<a id="engineering-button" href="engineering.html">Engineering</a>
 					<a id="programming-button" href="programming.html">Programming</a>
