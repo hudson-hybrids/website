@@ -1,5 +1,5 @@
 const CONDENSED_MENU_WIDTH = 1330;
-var navbar = document.getElementById("main-navbar");
+var navbar = document.getElementById("main-navbar-container");
 
 function addFooter() {
 	var footer = document.getElementById("footer");
@@ -72,56 +72,60 @@ function controlNavbar() {
 	//Menu button in navbar
 	if (windowWidth < CONDENSED_MENU_WIDTH) {
 		navbar.innerHTML = `
-			<li class="navbar-item dropdown">
-				<a href="JavaScript:void(0);" onclick="dropdown(this)">Menu</a>
-				<div id="main-navbar-dropdown-contents" class="contents">
-					<a id="home-button" href="index.html">Home</a>
-					<a id="our-team-button" href="our-team.html">Our Team</a>
-					<div class="dropdown">
-						<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
-						<div class="contents">
-							<a id="engineering-button" href="engineering.html">Engineering</a>
-							<a id="programming-button" href="programming.html">Programming</a>
-							<a id="business-button" href="business.html">Business</a>
+			<ul id="main-navbar">
+				<li class="navbar-item dropdown">
+					<a href="JavaScript:void(0);" onclick="dropdown(this)">Menu</a>
+					<div id="main-navbar-dropdown-contents" class="contents">
+						<a id="home-button" href="index.html">Home</a>
+						<a id="our-team-button" href="our-team.html">Our Team</a>
+						<div class="dropdown">
+							<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
+							<div class="contents">
+								<a id="engineering-button" href="engineering.html">Engineering</a>
+								<a id="programming-button" href="programming.html">Programming</a>
+								<a id="business-button" href="business.html">Business</a>
+							</div>
 						</div>
+						<a id="media-button" href="media.html">Media</a>
+						<a id="contact-button" href="contact.html">Contact</a>
+						<a id="donate-button" href="donate.html">Donate</a>
+						<a id="sponsors-button" href="sponsors.html">Sponsors</a>
 					</div>
-					<a id="media-button" href="media.html">Media</a>
-					<a id="contact-button" href="contact.html">Contact</a>
-					<a id="donate-button" href="donate.html">Donate</a>
-					<a id="sponsors-button" href="sponsors.html">Sponsors</a>
-				</div>
-			</li>
+				</li>
+			</ul>
 		`;
 	}
 	//All pages in navbar
 	else {
 		navbar.innerHTML = `
-			<li class="navbar-item">
-				<a id="home-button" href="index.html">Home</a>
-			</li>
-			<li class="navbar-item">
-				<a id="our-team-button" href="our-team.html">Our Team</a>
-			</li>
-			<li class="navbar-item dropdown">
-				<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
-				<div class="contents">
-					<a id="engineering-button" href="engineering.html">Engineering</a>
-					<a id="programming-button" href="programming.html">Programming</a>
-					<a id="business-button" href="business.html">Business</a>
-				</div>
-			</li>
-			<li class="navbar-item">
-				<a id="media-button" href="media.html">Media</a>
-			</li>
-			<li class="navbar-item">
-				<a id="contact-button" href="contact.html">Contact</a>
-			</li>
-			<li class="navbar-item">
-				<a id="donate-button" href="donate.html">Donate</a>
-			</li>
-			<li class="navbar-item">
-				<a id="sponsors-button" href="sponsors.html">Sponsors</a>
-			</li>
+			<ul id="main-navbar">
+				<li class="navbar-item">
+					<a id="home-button" href="index.html">Home</a>
+				</li>
+				<li class="navbar-item">
+					<a id="our-team-button" href="our-team.html">Our Team</a>
+				</li>
+				<li class="navbar-item dropdown">
+					<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
+					<div class="contents">
+						<a id="engineering-button" href="engineering.html">Engineering</a>
+						<a id="programming-button" href="programming.html">Programming</a>
+						<a id="business-button" href="business.html">Business</a>
+					</div>
+				</li>
+				<li class="navbar-item">
+					<a id="media-button" href="media.html">Media</a>
+				</li>
+				<li class="navbar-item">
+					<a id="contact-button" href="contact.html">Contact</a>
+				</li>
+				<li class="navbar-item">
+					<a id="donate-button" href="donate.html">Donate</a>
+				</li>
+				<li class="navbar-item">
+					<a id="sponsors-button" href="sponsors.html">Sponsors</a>
+				</li>
+			</ul>
 		`;
 	}
 	
