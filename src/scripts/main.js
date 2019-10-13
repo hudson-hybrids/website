@@ -1,6 +1,14 @@
 const CONDENSED_MENU_WIDTH = 1330;
 var navbar = document.getElementById("main-navbar-container");
 
+function addTopImg() {
+	var topImgDiv = document.getElementById("top-img-div");
+	topImgDiv.innerHTML = `
+		<img id="top-img" src="images/blue-circuit.png"></img>
+	`;
+}
+addTopImg();
+
 function addFooter() {
 	var footer = document.getElementById("footer");
 	footer.innerHTML = `
