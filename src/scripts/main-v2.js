@@ -1,24 +1,39 @@
 const CONDENSED_MENU_WIDTH = 1330;
 var navbar = document.getElementById("main-navbar-container");
 
+//Homepage header image
+function addLargeTopImg() {
+	var largeTopImgDiv = document.getElementById("large-top-img-div");
+	if (largeTopImgDiv !== null) {
+		largeTopImgDiv.innerHTML = `
+			<img id="large-top-img" src="images/match-start-cropped.png"></img>
+		`;
+	}
+}
+addLargeTopImg();
+
+//Other header images
 function addTopImg() {
 	var topImgDiv = document.getElementById("top-img-div");
-	console.log(topImgDiv.classList);
-	topImgDiv.innerHTML = `
-		<img id="top-img" src="images/match-start-cropped.png"></img>
-	`;
+	if (topImgDiv !== null) {
+		topImgDiv.innerHTML = `
+			<img id="top-img" src="images/field-cropped.png"></img>
+		`;
+	}
 }
 addTopImg();
 
 function addFooter() {
 	var footer = document.getElementById("footer");
-	footer.innerHTML = `
-		<div id="footer-text">
-			<a href="privacy-policy.html">Privacy Policy</a>
-			<a href="contact.html">Contact</a>
-			<p id="copyright-text">Copyright © 2019 Hudson Hybrids Robotics. All rights reserved.</p>
-		</div>
-	`;
+	if (footer !== null) {
+		footer.innerHTML = `
+			<div id="footer-text">
+				<a href="privacy-policy.html">Privacy Policy</a>
+				<a href="contact.html">Contact</a>
+				<p id="copyright-text">Copyright © 2019 Hudson Hybrids Robotics. All rights reserved.</p>
+			</div>
+		`;
+	}
 }
 addFooter();
 
