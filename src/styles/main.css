@@ -204,6 +204,28 @@ p#copyright-text {
 	height: calc(180px + 10vw);
 }
 
+#hudson-hybrids-logo-404 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100px + 10vw);
+	height: calc(100px + 10vw);
+}
+
+#message-404 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 50%;
+}
+#message-404 span {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
 .img-and-caption {
 	width: calc(180px + 20vw);
 	margin-left: auto;
