@@ -3,8 +3,9 @@ var navbar = document.getElementById("main-navbar-container");
 
 function addTopImg() {
 	var topImgDiv = document.getElementById("top-img-div");
+	console.log(topImgDiv.classList);
 	topImgDiv.innerHTML = `
-		<img id="top-img" src="images/blue-circuit.png"></img>
+		<img id="top-img" src="images/match-start-cropped.png"></img>
 	`;
 }
 addTopImg();
