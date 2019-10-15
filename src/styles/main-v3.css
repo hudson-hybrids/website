@@ -206,7 +206,7 @@ a:visited {
 	margin-right: 10vw;
 	margin-top: var(--content-vert-margin);
 	margin-bottom: var(--content-vert-margin);
-	min-height: 650px;
+	min-height: 65vh;
 }
 #main-content h1 {
 	font-size: 30px;
@@ -278,15 +278,21 @@ p#copyright-text {
 .slideshow-left-button:active, .slideshow-right-button:active {
 	color: rgb(0, 0, 0);
 }
-.current-slide-img {
-	display: block;
+.slide-img {
+	display: none;
 	margin: 0 auto;
 	width: calc(100px + 24vw);
 }
-.current-slide-caption-container {
+.slide-img.current-slide {
+	display: block;
+}
+.slide-caption-container {
 	width: calc(100px + 24vw);
 	margin: 0 auto;
 }
 .current-slide-caption {
+	margin-top: 0px;
+	line-height: calc(10px + 2vw);
+	font-size: calc(10px + 0.7vw) !important;
 	text-align: center;
 }
