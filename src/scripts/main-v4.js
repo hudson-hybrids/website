@@ -61,7 +61,7 @@ function controlNavbar() {
 		},
 		
 		{
-			file: "branches.html",
+			file: "subteams.html",
 			subfiles: ["engineering.html", "programming.html", "business.html"],
 			num: 2
 		},
@@ -103,7 +103,7 @@ function controlNavbar() {
 						<a id="home-button" href="index.html">Home</a>
 						<a id="our-team-button" href="our-team.html">Our Team</a>
 						<div class="dropdown">
-							<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
+							<a id="subteams-button" href="JavaScript:void(0);" onclick="dropdown(this)">Subteams</a>
 							<div class="contents">
 								<a id="engineering-button" href="engineering.html">Engineering</a>
 								<a id="programming-button" href="programming.html">Programming</a>
@@ -130,7 +130,7 @@ function controlNavbar() {
 					<a id="our-team-button" href="our-team.html">Our Team</a>
 				</li>
 				<li class="navbar-item dropdown">
-					<a id="branches-button" href="JavaScript:void(0);" onclick="dropdown(this)">Branches</a>
+					<a id="subteams-button" href="JavaScript:void(0);" onclick="dropdown(this)">Subteams</a>
 					<div class="contents">
 						<a id="engineering-button" href="engineering.html">Engineering</a>
 						<a id="programming-button" href="programming.html">Programming</a>
@@ -189,7 +189,7 @@ function controlNavbar() {
 	
 	//Set active page
 	let navButtons = [document.getElementById("home-button"), document.getElementById("our-team-button"),
-		document.getElementById("branches-button"), document.getElementById("engineering-button"), 
+		document.getElementById("subteams-button"), document.getElementById("engineering-button"), 
 		document.getElementById("programming-button"), document.getElementById("business-button"),
 		document.getElementById("media-button"), document.getElementById("contact-button"),
 		document.getElementById("donate-button"), document.getElementById("sponsors-button")];
