@@ -1,0 +1,303 @@
+:root {
+	--content-vert-margin: 50px;
+	--navbar-font-size: calc(30px + 0.1vw);
+	--navbar-padding: 18px;
+	--navbar-height: calc(var(--navbar-font-size) + 2 * var(--navbar-padding));
+	--top-img-width: 2404px;
+	--top-img-height: 492px;
+	--top-img-divider: 3;
+}
+
+body {
+	background-color: rgb(250, 250, 250);
+	padding: 0;
+	margin: 0;
+	font-family: "Lucida console", Monaco, monospace;
+}
+
+a {
+	color: rgb(0, 0, 140);
+}
+a:active {
+	color: rgb(0, 0, 100);
+}
+a:visited {
+	color: rgb(80, 80, 80);
+}
+
+/*Large header image on homepage*/
+#large-top-img-div {
+	width: 100%;
+	height: 286px;
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+#large-top-img {
+	filter: brightness(70%) blur(5px);
+	height: 286px;
+	position: relative;
+	z-index: 0;
+	transform: scale(1.03);
+}
+@media only screen and (min-width: 575px) {
+	#large-top-img-div {
+		height: calc(286 * 100vw / 575);
+	}
+	#large-top-img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/*Other header images*/
+#top-img-div {
+	width: 100%;
+	height: 328px;
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+#top-img {
+	filter: brightness(60%) blur(4px);
+	height: 328px;
+	position: relative;
+	z-index: 0;
+	transform: scale(1.03);
+}
+@media only screen and (min-width: 1603px) {
+	#top-img-div {
+		height: calc(328 * 100vw / 1603);
+	}
+	#top-img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#large-title {
+	--margin: calc(5px + 1vw);
+	--font-size: calc(20px + 7vw);
+	
+	color: rgb(255, 255, 255);
+	position: absolute;
+	top: calc(var(--navbar-font-size) + 2 * var(--navbar-padding));
+	margin: var(--margin);
+	font-size: var(--font-size);
+	z-index: 1;
+}
+#title {
+	--margin: calc(5px + 1vw);
+	--font-size: calc(30px + 5.1vw);
+	
+	color: rgb(255, 255, 255);
+	position: absolute;
+	top: calc(var(--navbar-font-size) + 2 * var(--navbar-padding));
+	margin: var(--margin);
+	font-size: var(--font-size);
+	z-index: 1;
+}
+
+.divider {
+	background-image: linear-gradient(to right, rgb(30, 30, 30), rgb(90, 90, 90));
+	height: 20px;
+}
+
+/*Navbar*/
+#main-navbar-container {
+	overflow: hidden;
+}
+#main-navbar {
+	list-style-type: none;
+	background-image: linear-gradient(to right, rgb(30, 30, 30), rgb(90, 90, 90));
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	
+}
+.navbar-item {
+	float: left;
+}
+.navbar-item a {
+	display: block;
+	padding-top: var(--navbar-padding);
+	padding-bottom: var(--navbar-padding);
+	padding-left: 30px;
+	padding-right: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: rgb(185, 185, 185);
+	font-size: var(--navbar-font-size);
+}
+.navbar-item a:hover {
+	background-color: rgb(25, 25, 25);
+}
+.navbar-item a.active {
+	color: rgb(255, 255, 255);
+	text-decoration: underline;
+}
+
+/*Navbar dropdown*/
+.navbar-item.dropdown .contents {
+	display: none;
+	position: absolute;
+	top: var(--navbar-height);
+	list-style-type: none;
+	background-color: rgb(220, 220, 220);
+	z-index: 2;
+}
+.navbar-item.dropdown .contents a {
+	display: block;
+	padding: var(--navbar-padding);
+	text-decoration: none;
+	text-align: center;
+	color: rgb(80, 80, 80);
+	font-size: var(--navbar-font-size);
+}
+.navbar-item.dropdown .contents a:hover {
+	background-color: rgb(200, 200, 200);
+}
+.navbar-item.dropdown.expanded .contents {
+	display: block;
+}
+#main-navbar-dropdown-contents {
+	width: 100%;
+}
+.navbar-item.dropdown .contents a.active {
+	color: rgb(0, 0, 0);
+	text-decoration: underline;
+}
+
+/*Dropdown within condensed navbar*/
+#main-navbar-dropdown-contents {
+	position: absolute;
+	top: var(--navbar-height);
+	z-index: 2;
+}
+#main-navbar-dropdown-contents .contents {
+	position: relative;
+	top: 0;
+	display: none;
+	list-style-type: none;
+	background-color: rgb(170, 170, 170);
+	width: 100%;
+}
+#main-navbar-dropdown-contents .contents a {
+	display: block;
+	padding: var(--navbar-padding);
+	text-decoration: none;
+	text-align: center;
+	color: rgb(60, 60, 60);
+	font-size: var(--navbar-font-size);
+}
+#main-navbar-dropdown-contents .contents a:hover {
+	background-color: rgb(150, 150, 150);
+}
+#main-navbar-dropdown-contents .dropdown.expanded .contents {
+	display: block;
+}
+#main-navbar-dropdown-contents .contents a.active {
+	color: rgb(0, 0, 0);
+	text-decoration: underline;
+}
+
+/*Main content*/
+#main-content {
+	line-height: 30px;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	margin-top: var(--content-vert-margin);
+	margin-bottom: var(--content-vert-margin);
+	min-height: 65vh;
+}
+#main-content h1 {
+	font-size: 30px;
+}
+#main-content p, #main-content li {
+	font-size: 21px;
+}
+
+#paypal-form {
+	text-align: center;
+}
+
+#footer {
+	position: relative;
+	background-color: rgb(220, 220, 220);
+	height: 100px;
+}
+#footer-text {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	margin-left: 5vw;
+}
+#footer-text p, #footer-text a {
+	border-width: 0;
+	margin: 0;
+	position: relative;
+	display: inline-block;
+	padding-right: 12vw;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 18px;
+}
+p#copyright-text {
+	font-size: 10px;
+}
+
+#hudson-hybrids-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(180px + 10vw);
+	height: calc(180px + 10vw);
+}
+
+/*Slideshow*/
+.slideshow-container {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.slideshow {
+	border: 0;
+	border-collapse: collapse;
+	display: inline-block;
+}
+.slideshow-button {
+	background: rgb(220, 220, 220);
+}
+.slideshow-button:hover {
+	background: rgb(150, 150, 150);
+	cursor: pointer;
+}
+.slideshow-left-button, .slideshow-right-button {
+	display: block;
+	color: rgb(0, 0, 0);
+	font-size: calc(20px + 6vw);
+	text-decoration: none;
+}
+.slideshow-left-button:active, .slideshow-right-button:active {
+	color: rgb(0, 0, 0);
+}
+.slide-img {
+	display: none;
+	margin: 0 auto;
+	width: calc(100px + 24vw);
+}
+.slide-img.current-slide {
+	display: block;
+}
+.slide-caption-container {
+	width: calc(100px + 24vw);
+	margin: 0 auto;
+}
+.current-slide-caption {
+	margin-top: 0px;
+	line-height: calc(10px + 2vw);
+	font-size: calc(10px + 0.7vw) !important;
+	text-align: center;
+}
