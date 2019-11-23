@@ -207,13 +207,14 @@ a:visited {
 /*Main content*/
 #main-content {
 	line-height: 30px;
-	margin-left: 10vw;
-	margin-right: 10vw;
+	margin-left: calc(22vw - 50px);
+	margin-right: calc(22vw - 50px);
 	margin-top: var(--content-vert-margin);
 	margin-bottom: var(--content-vert-margin);
 	min-height: 65vh;
 }
 #main-content h1 {
+	margin-top: 70px;
 	font-size: 30px;
 }
 #main-content p, #main-content li {
