@@ -326,5 +326,14 @@ table.center {
 th {
 	font-size: 25px;
 }
-
-
+.center {
+	text-align: center;
+}
+.company-logo-wrapper {
+	text-align: center;
+}
+hr {
+	border-width: 3px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
