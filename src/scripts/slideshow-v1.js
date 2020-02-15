@@ -52,15 +52,27 @@ var slideshow_2019_2020 = {
 		document.getElementById("frank-boston-img"),
 		document.getElementById("matthew-arshiq-img"),
 		document.getElementById("programming-group-img"),
-		document.getElementById("window-room-potato-img")
+		document.getElementById("window-room-potato-img"),
+		document.getElementById("day1-discussion-1-img"),
+		document.getElementById("drive-train-img"),
+		document.getElementById("field-element-img"),
+		document.getElementById("business-brainstorm-img"),
+		document.getElementById("vision-img"),
+		document.getElementById("wiring-img")
 	],
 	imgCaptions: [
-		"A member of the engineering team works on the robot", 
+		"Begining wiring of the robot's electronics", 
 		"Our engineers plan the design of our robot",
-		"Two of our engineers prototype the intank, tank, and outtank",
+		"Two of our engineers prototype the robot's tank",
 		"Two of our programmers code the robot's camera system",
 		"Our programmers code the shooter",
-		"Our team has a dicussion about robot design"
+		"Our team has a dicussion about robot design",
+		"One group of students discusses ideas just after the game was revealed",
+		"Members of the engineering team work on the drivetrain of our new robot",
+		"Members of the engineering team create a replica of a field element",
+		"Members of the busiess team working together on a business plan",
+		"Vision processor lighting up the room",
+		"Programming the new electronics board"
 	],
 	currentImgIndex: 0,
 	slideCaptionElement: document.getElementById("2019-2020-current-slide-caption"),
