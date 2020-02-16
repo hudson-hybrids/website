@@ -217,6 +217,9 @@ a:visited {
 	margin-top: 70px;
 	font-size: 30px;
 }
+#main-content h3 {
+	font-size: 25px;
+}
 #main-content p, #main-content li {
 	font-size: 21px;
 }
@@ -322,4 +325,15 @@ table.center {
 }
 th {
 	font-size: 25px;
+}
+.center {
+	text-align: center;
+}
+.company-logo-wrapper {
+	text-align: center;
+}
+hr {
+	border-width: 3px;
+	margin-left: 10%;
+	margin-right: 10%;
 }
