@@ -12,8 +12,6 @@ jobs:
             password=${PRINCIPLE_SECRET}
             tenantId=${PRINCIPLE_TENANT}
 
-            az account set -s $subscription
-
             if [[ "${CIRCLE_BRANCH}" == "dev" ]]
             then
               echo Releasing to Staging...
