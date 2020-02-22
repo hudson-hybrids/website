@@ -16,6 +16,8 @@ jobs:
             then
               echo Releasing to Staging...
               azureConnectionString=${STAGING_STORAGE_CONNECTIONSTRING}
+              cdnEndpoint=${STAGING_CDN_ENDPOINT}
+              cdnProfile=${STAGING_CDN_PROFILE}
               resourceGroup=${STAGING_RESOURCEGROUP}
             fi
 
@@ -23,11 +25,16 @@ jobs:
             then
               echo Releasing to Production...
               azureConnectionString=${PROD_STORAGE_CONNECTIONSTRING}
+              cdnEndpoint=${PROD_CDN_ENDPOINT}
+              cdnProfile=${PROD_CDN_PROFILE}
               resourceGroup=${PROD_RESOURCEGROUP}
             fi
 
             echo Uploading files to Azure...
             az storage blob upload-batch --source ./src --destination "\$web" --connection-string $azureConnectionString
+
+            echo Purging the CDN cache...
+            az cdn endpoint purge -g $resourceGroup -n $cdnEndpoint --profile-name $cdnProfile --content-paths '/*' 
 
 workflows:
   version: 2
