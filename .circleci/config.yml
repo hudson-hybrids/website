@@ -12,6 +12,8 @@ jobs:
             password=${PRINCIPLE_SECRET}
             tenantId=${PRINCIPLE_TENANT}
 
+            az login --service-principal -u $userName -p $password --tenant $tenantId
+
             if [[ "${CIRCLE_BRANCH}" == "dev" ]]
             then
               echo Releasing to Staging...
